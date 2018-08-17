@@ -20,4 +20,26 @@ Lista um continente em especifico, de acordo com o parâmetro ID passado no corp
 Lista todos os paises de um continente especifico.
 
 ## \continentes\\[id]\paises\\[id]
-Lista um pais especifico de um continente, de acordo com os parâmetros passados no corpo da URL.
+Lista um pais especifico de um continente de acordo com os parâmetros passados no corpo da URL.
+
+## Exemplo:
+
+**\continentes\\2\paises\\1**
+
+```
+{
+    "id": 1,
+    "nome": "Brasil",
+    "capital": "Brasília",
+    "area": 8514880,
+    "populacao": 207847528,
+    "governo": "República federativa presidencialista",
+    "lema": "Ordem e Progresso",
+    "hino": "Hino Nacional Brasileiro",
+    "linguas": "Português",
+    "moeda": "Real (BRL)",
+    "vizinhos": "Argentina, Bolívia, Colômbia, Guiana, Paraguai, Peru, Suriname, Uruguai, Venezuela",
+    "f_maritimas": "Oceano Atlântico"
+}
+
+```
