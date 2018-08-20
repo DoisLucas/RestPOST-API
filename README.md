@@ -11,36 +11,36 @@ https://api-postful.herokuapp.com/
 
 A API criada disponibiliza todos os continentes e paises existentes, retornando os dados de busca no formato **JSON**. Confira abaixo as URLs de acesso a API:
 
-## \continentes
+## /continentes
 Lista todos os continentes existentes.
 
-## \continentes\\[id]
+## /continentes/[id]
 Lista um continente em especifico, de acordo com o parâmetro ID passado no corpo da URL.
 
-## \continentes\\[id]\paises
+## /continentes/[id]/paises
 Lista todos os paises de um continente especifico.
 
-## \continentes\\[id]\paises\\[id]
+## /continentes/[id]/paises/[id]
 Lista um pais especifico de um continente de acordo com os parâmetros passados no corpo da URL.
 
 ## Exemplo:
 
-**\continentes\\2\paises\\1**
+**/continentes/1/paises/1**
 
 ```
 {
-    "id": 1,
-    "nome": "Brasil",
-    "capital": "Brasília",
-    "area": 8514880,
-    "populacao": 207847528,
-    "governo": "República federativa presidencialista",
-    "lema": "Ordem e Progresso",
-    "hino": "Hino Nacional Brasileiro",
-    "linguas": "Português",
-    "moeda": "Real (BRL)",
-    "vizinhos": "Argentina, Bolívia, Colômbia, Guiana, Paraguai, Peru, Suriname, Uruguai, Venezuela",
-    "f_maritimas": "Oceano Atlântico"
+    "id":1,
+    "nome":"África do Sul",
+    "capital":"Pretória",
+    "area":1221040,
+    "populacao":54956920,
+    "governo":"República presidencialista",
+    "lema":"Diversos povos se unem",
+    "hino":"National anthem of South Africa",
+    "linguas":"Africâner, Inglês, Ndebele, SeSotho do norte, SeSotho do sul, Suázi, Venda, Xhosa, XiTsonga, Zulu, seTswana",
+    "moeda":" Rand sul-africano (ZAR)",
+    "vizinhos":"Botsuana, Lesoto, Moçambique, Namíbia, Suazilândia, Zimbábue",
+    "f_maritimas":"Oceano Atlântico, Oceano Índico"
 }
 
 ```
