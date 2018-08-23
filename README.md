@@ -11,6 +11,9 @@ https://api-postful.herokuapp.com/
 
 A API criada disponibiliza todos os continentes e paises existentes, retornando os dados de busca no formato **JSON**. Confira abaixo as URLs de acesso a API:
 
+## /paises?nome=[param]
+Lista um pais especifico pelo nome, ignorando caixa alta/baixa e acentuações.
+
 ## /continentes
 Lista todos os continentes existentes.
 
