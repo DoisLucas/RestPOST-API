@@ -65,16 +65,21 @@
         <p style="text-align: center"> A API criada disponibiliza todos os continentes e paises existentes, retornando
             os dados de busca no formato <b>JSON</b>. Confira abaixo as URLs de acesso a API: </p>
 
-        <h4 style="margin-top: 20px"> \continentes </h4>
+        <h4 style="margin-top: 20px"> /continentes </h4>
         Lista todos os continentes existentes.
         <br>
-        <h4> \continentes\[id] </h4>
+
+        <h4> /paises?nome=[param] </h4>
+        Lista um pais especifico pelo nome, ignorando caixa alta/baixa e acentuações.
+        <br>
+
+        <h4> /continentes/[id] </h4>
         Lista um continente em especifico, de acordo com o parâmetro ID passado no corpo da URL.
         <br>
-        <h4> \continentes\[id]\paises </h4>
+        <h4> /continentes/[id]/paises </h4>
         Lista todos os paises de um continente especifico.
         <br>
-        <h4> \continentes\[id]\paises\[id] </h4>
+        <h4> /continentes/[id]/paises/[id] </h4>
         Lista um pais especifico de um continente de acordo com os parâmetros passados no corpo da URL.
 
 
