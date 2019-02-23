@@ -10,6 +10,7 @@ import tecworld.doislucas.services.PaisService;
 import java.text.Normalizer;
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class indexController {
 

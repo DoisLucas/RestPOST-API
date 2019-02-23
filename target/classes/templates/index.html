@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>RestPOST-API</title>
+
+    <link rel="icon" href="../static/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="sticky-footer.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<main role="main" class="container">
+
+
+    <style type="text/css">
+
+        .wrapper-top {
+            margin-top: 5%;
+        }
+
+        div {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .responsive {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+    </style>
+
+    <div class="wrapper-content" style="margin-left: 10px; margin-right: 10px">
+        <h1 style="margin-bottom: 30px; margin-top: 40px"> RestPOST-API</h1>
+
+        <b>API:</b> O acrônimo API que provém do inglês Application Programming Interface (Em português, significa
+        Interface de Programação de Aplicações), trata-se de um conjunto de rotinas e padrões estabelecidos e
+        documentados por uma aplicação A, para que outras aplicações consigam utilizar as funcionalidades desta
+        aplicação A, sem precisar conhecer detalhes da implementação do software.
+        <br><br>
+        <b>REST:</b> O modelo REST (<b>RE</b>presentational <b>S</b>tate <b>T</b>ransfer) representa nada mais que uma
+        “nova” possibilidade para a criação de web services, cujas principais diferenças em relação ao modelo
+        tradicional (SOAP) estão na utilização semântica dos métodos HTTP (GET, POST, PUT e DELETE), na leveza dos
+        pacotes de dados transmitidos na rede e na simplicidade, fazendo desnecessária a criação de camadas
+        intermediárias
+    </div>
+
+    <p align="center" style="margin-top: 60px ">
+        <img class="responsive" src="https://becode.com.br/wp-content/uploads/2017/02/API-768x520.png" width="17%"
+             height="20%" align="center"/>
+    </p>
+
+    <div class="wrapper-content">
+
+        <p style="text-align: center"> A API criada disponibiliza todos os continentes e paises existentes, retornando
+            os dados de busca no formato <b>JSON</b>. Confira abaixo as URLs de acesso a API: </p>
+
+        <h4 style="margin-top: 20px"> /continentes </h4>
+        Lista todos os continentes existentes.
+        <br>
+
+        <h4> /paises?nome=[param] </h4>
+        Lista um pais especifico pelo nome, ignorando caixa alta/baixa e acentuações.
+        <br>
+
+        <h4> /continentes/[id] </h4>
+        Lista um continente em especifico, de acordo com o parâmetro ID passado no corpo da URL.
+        <br>
+        <h4> /continentes/[id]/paises </h4>
+        Lista todos os paises de um continente especifico.
+        <br>
+        <h4> /continentes/[id]/paises/[id] </h4>
+        Lista um pais especifico de um continente de acordo com os parâmetros passados no corpo da URL.
+
+
+        <h2 style="margin-top: 20px; margin-bottom: 20px"> Exemplo: </h2>
+
+        <h4><a href="https://api-postful.herokuapp.com/continentes/1/paises/1">continentes\1\paises\1</a></h4>
+
+        <div class="alert alert-success" role="alert" style="margin-bottom: 7%; margin-top: 20px">
+            <h4 style="font-size: 17px">
+                {
+                <br>
+                <div style="margin-left: 30px">
+                    "id": 1,<br>
+                    "nome": "África do Sul",<br>
+                    "capital": "Pretória",<br>
+                    "area": 1221040,<br>
+                    "populacao": 54956920,<br>
+                    "governo": "República presidencialista",<br>
+                    "lema": "Diversos povos se unem",<br>
+                    "hino": "National anthem of South Africa",<br>
+                    "linguas": "Africâner, Inglês, Ndebele, SeSotho do norte, SeSotho do sul, Suázi, Venda, Xhosa,
+                    XiTsonga, Zulu, seTswana",<br>
+                    "moeda": " Rand sul-africano (ZAR)",<br>
+                    "vizinhos": "Botsuana, Lesoto, Moçambique, Namíbia, Suazilândia, Zimbábue",<br>
+                    "f_maritimas": "Oceano Atlântico, Oceano Índico"
+                </div>
+
+                }
+            </h4>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>
