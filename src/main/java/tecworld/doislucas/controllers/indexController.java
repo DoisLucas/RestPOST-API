@@ -7,8 +7,9 @@ import tecworld.doislucas.models.Pais;
 import tecworld.doislucas.services.ContinenteService;
 import tecworld.doislucas.services.PaisService;
 
-import java.text.Normalizer;
 import java.util.List;
+
+import static tecworld.doislucas.Utils.Utils.removerAcentos;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -19,30 +20,27 @@ public class indexController {
     @Autowired
     private PaisService ps;
 
-    @RequestMapping(value = "/paises", method = RequestMethod.GET)
-    public List<Pais> PaisesParam(@RequestParam(value = "nome", required = true) String nome){ return ps.findOneName(removerAcentos(nome)); }
+    @GetMapping(value = "/paises")
+    public List<Pais> PaisesParam(@RequestParam(value = "nome") String nome){ return ps.findOneName(removerAcentos(nome)); }
 
-    @RequestMapping(value = "/continentes", method = RequestMethod.GET)
+    @GetMapping(value = "/continentes")
     public List<Continente> allContinentes(@RequestParam(value = "nome", required = false) String name) {
-        if(name != null){
-            return ccs.findByName(removerAcentos(name));
-        }else{
-            return ccs.findAll();
-        }
+        return name != null ? ccs.findByName(removerAcentos(name)) : ccs.findAll();
     }
 
-    @RequestMapping(value = "/continentes/{id}", method = RequestMethod.GET)
-    public Continente ContinenteByID(@PathVariable("id") int id) { return ccs.findById(id); }
+    @GetMapping(value = "/continentes/{id}")
+    public Continente ContinenteByID(@PathVariable("id") int id) {
+        return ccs.findById(id);
+    }
 
-    @RequestMapping(value = "/continentes/{id}/paises", method = RequestMethod.GET)
+    @GetMapping(value = "/continentes/{id}/paises")
     public List<Pais> PaisByContinente(@PathVariable("id") int id) {
-        Continente escolhido = ccs.findById(id);
-        return escolhido.getPaises();
+        return ccs.findById(id).getPaises();
     }
 
-    @RequestMapping(value = "/continentes/{id}/paises/{id2}", method = RequestMethod.GET)
-    public Pais PaisByID(@PathVariable("id") int id, @PathVariable("id2") int id2) { return ps.findOneIDs(id,id2); }
-
-    public static String removerAcentos(String str) { return Normalizer.normalize(str, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""); }
+    @GetMapping(value = "/continentes/{id}/paises/{id2}")
+    public Pais PaisByID(@PathVariable("id") int id, @PathVariable("id2") int id2) {
+        return ps.findOneIDs(id,id2);
+    }
 
 }
