@@ -11,10 +11,10 @@ import tecworld.doislucas.repositories.EmailRepository;
 public class EmailService {
 
     @Autowired
-    EmailRepository er;
+    EmailRepository emailRepository;
 
     public Email addEmail(Email email) {
-        return er.save(email);
+        return emailRepository.save(email);
     }
 
 }

@@ -1,6 +1,8 @@
 package tecworld.doislucas.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tecworld.doislucas.models.Continente;
 import tecworld.doislucas.models.Pais;
@@ -21,26 +23,32 @@ public class indexController {
     private PaisService paisService;
 
     @GetMapping(value = "/paises")
-    public List<Pais> PaisesParam(@RequestParam(value = "nome") String nome){ return paisService.findOneName(removerAcentos(nome)); }
+    public ResponseEntity<List<Pais>> PaisesParam(@RequestParam(value = "nome") String nome) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(paisService.findOneName(removerAcentos(nome)));
+    }
 
     @GetMapping(value = "/continentes")
-    public List<Continente> allContinentes(@RequestParam(value = "nome", required = false) String name) {
-        return name != null ? continenteService.findByName(removerAcentos(name)) : continenteService.findAll();
+    public ResponseEntity<List<Continente>> allContinentes(@RequestParam(value = "nome", required = false) String name) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(name != null ? continenteService.findByName(removerAcentos(name)) : continenteService.findAll());
     }
 
     @GetMapping(value = "/continentes/{id}")
-    public Continente ContinenteByID(@PathVariable("id") int id) {
-        return continenteService.findById(id);
+    public ResponseEntity<Continente> ContinenteByID(@PathVariable("id") int id) {
+        return ResponseEntity.status(HttpStatus.OK).body(continenteService.findById(id));
     }
 
     @GetMapping(value = "/continentes/{id}/paises")
-    public List<Pais> PaisByContinente(@PathVariable("id") int id) {
-        return continenteService.findById(id).getPaises();
+    public ResponseEntity<List<Pais>> PaisByContinente(@PathVariable("id") int id) {
+        return ResponseEntity.status(HttpStatus.OK).body(continenteService.findById(id).getPaises());
     }
 
     @GetMapping(value = "/continentes/{id}/paises/{id2}")
-    public Pais PaisByID(@PathVariable("id") int id, @PathVariable("id2") int id2) {
-        return paisService.findOneIDs(id,id2);
+    public ResponseEntity<Pais> PaisByID(@PathVariable("id") int id, @PathVariable("id2") int id2) {
+        return ResponseEntity.status(HttpStatus.OK).body(paisService.findOneIDs(id, id2));
     }
 
 }

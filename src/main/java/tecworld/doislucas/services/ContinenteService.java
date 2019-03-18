@@ -13,10 +13,10 @@ import java.util.List;
 public class ContinenteService {
 
     @Autowired
-    private ContinenteRepository cr;
+    private ContinenteRepository continenteRepository;
 
-    public List<Continente> findAll() { return this.cr.findAll(); }
-    public Continente findById(int id) { return this.cr.findById(id).orElse(null); }
-    public List<Continente> findByName(String nome){ return this.cr.findByName(nome); }
+    public List<Continente> findAll() { return this.continenteRepository.findAll(); }
+    public Continente findById(int id) { return this.continenteRepository.findById(id).orElse(null); }
+    public List<Continente> findByName(String nome){ return this.continenteRepository.findByName(nome); }
 
 }
