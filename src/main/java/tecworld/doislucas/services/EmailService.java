@@ -13,8 +13,8 @@ public class EmailService {
     @Autowired
     EmailRepository er;
 
-    public void addEmail(Email email){
-            er.save(email);
+    public Email addEmail(Email email) {
+        return er.save(email);
     }
 
 }
