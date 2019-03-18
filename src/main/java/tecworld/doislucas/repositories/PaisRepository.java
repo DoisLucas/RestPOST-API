@@ -12,9 +12,9 @@ import java.util.List;
 public interface PaisRepository extends JpaRepository<Pais, Integer> {
 
     @Query(value = "SELECT * FROM tab_pais p WHERE LOWER(unaccent(p.nome)) = LOWER(:nome)", nativeQuery = true)
-    public List<Pais> findOneName(@Param("nome") String nome);
+    List<Pais> findOneName(@Param("nome") String nome);
 
     @Query(value = "SELECT * FROM tab_pais p WHERE p.id = :id1 AND p.c_id = :id", nativeQuery = true)
-    public Pais findOneIDs(@Param("id") int id, @Param("id1") int id1);
+    Pais findOneIDs(@Param("id") int id, @Param("id1") int id1);
 
 }

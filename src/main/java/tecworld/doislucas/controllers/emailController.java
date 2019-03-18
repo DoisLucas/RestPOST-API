@@ -14,12 +14,12 @@ import tecworld.doislucas.services.EmailService;
 public class emailController {
 
     @Autowired
-    private EmailService es;
+    private EmailService emailService;
 
     @PostMapping(value = "/email")
     public Object catchEmail(@RequestBody Email email) {
         try {
-            es.addEmail(email);
+            emailService.addEmail(email);
             return email;
         } catch (DataIntegrityViolationException e) {
             return "210 (Alrady Exists)";

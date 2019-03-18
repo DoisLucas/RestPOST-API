@@ -123,5 +123,23 @@ public class Pais {
         this.f_maritimas = f_maritimas;
     }
 
+    @Override
+    public String toString() {
+        return "Pais{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", capital='" + capital + '\'' +
+                ", area=" + area +
+                ", populacao=" + populacao +
+                ", governo='" + governo + '\'' +
+                ", lema='" + lema + '\'' +
+                ", hino='" + hino + '\'' +
+                ", linguas='" + linguas + '\'' +
+                ", moeda='" + moeda + '\'' +
+                ", vizinhos='" + vizinhos + '\'' +
+                ", f_maritimas='" + f_maritimas + '\'' +
+                ", c=" + c +
+                '}';
+    }
 }
 

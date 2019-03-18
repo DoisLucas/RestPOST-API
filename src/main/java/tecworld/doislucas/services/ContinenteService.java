@@ -16,7 +16,7 @@ public class ContinenteService {
     private ContinenteRepository cr;
 
     public List<Continente> findAll() { return this.cr.findAll(); }
-    public Continente findById(int id) { return this.cr.findById(id).get(); }
+    public Continente findById(int id) { return this.cr.findById(id).orElse(null); }
     public List<Continente> findByName(String nome){ return this.cr.findByName(nome); }
 
 }

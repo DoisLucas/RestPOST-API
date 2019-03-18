@@ -16,31 +16,31 @@ import static tecworld.doislucas.Utils.Utils.removerAcentos;
 public class indexController {
 
     @Autowired
-    private ContinenteService ccs;
+    private ContinenteService continenteService;
     @Autowired
-    private PaisService ps;
+    private PaisService paisService;
 
     @GetMapping(value = "/paises")
-    public List<Pais> PaisesParam(@RequestParam(value = "nome") String nome){ return ps.findOneName(removerAcentos(nome)); }
+    public List<Pais> PaisesParam(@RequestParam(value = "nome") String nome){ return paisService.findOneName(removerAcentos(nome)); }
 
     @GetMapping(value = "/continentes")
     public List<Continente> allContinentes(@RequestParam(value = "nome", required = false) String name) {
-        return name != null ? ccs.findByName(removerAcentos(name)) : ccs.findAll();
+        return name != null ? continenteService.findByName(removerAcentos(name)) : continenteService.findAll();
     }
 
     @GetMapping(value = "/continentes/{id}")
     public Continente ContinenteByID(@PathVariable("id") int id) {
-        return ccs.findById(id);
+        return continenteService.findById(id);
     }
 
     @GetMapping(value = "/continentes/{id}/paises")
     public List<Pais> PaisByContinente(@PathVariable("id") int id) {
-        return ccs.findById(id).getPaises();
+        return continenteService.findById(id).getPaises();
     }
 
     @GetMapping(value = "/continentes/{id}/paises/{id2}")
     public Pais PaisByID(@PathVariable("id") int id, @PathVariable("id2") int id2) {
-        return ps.findOneIDs(id,id2);
+        return paisService.findOneIDs(id,id2);
     }
 
 }

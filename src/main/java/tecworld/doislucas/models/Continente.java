@@ -3,6 +3,7 @@ package tecworld.doislucas.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,4 +52,12 @@ public class Continente {
         this.nome = nome;
     }
 
+    @Override
+    public String toString() {
+        return "Continente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", paises=" + paises +
+                '}';
+    }
 }
