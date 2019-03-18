@@ -23,7 +23,7 @@ public class emailController {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body( emailService.addEmail(email) );
         } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error: Duplicate key value violates unique constraint");
         }
     }
 
