@@ -14,7 +14,7 @@ public class controllerExceptionHandler {
 
     @ExceptionHandler(ObjectNotFoundException.class)
     public ResponseEntity<ErroClass> objectNotFound(ObjectNotFoundException e, HttpServletRequest request) {
-        ErroClass err = new ErroClass(HttpStatus.NOT_FOUND.value(), e.getMessage(), System.currentTimeMillis());
+        ErroClass err = new ErroClass(HttpStatus.NOT_FOUND.value(), e.getMessage(), java.time.LocalDateTime.now());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
     }
 

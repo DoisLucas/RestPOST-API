@@ -1,12 +1,14 @@
 package tecworld.doislucas.services.exceptions;
 
+import java.time.LocalDateTime;
+
 public class ErroClass {
     
     private Integer status;
     private String mensagem;
-    private Long timeStamp;
+    private LocalDateTime timeStamp;
 
-    public ErroClass(Integer status, String mensagem, Long timeStamp) {
+    public ErroClass(Integer status, String mensagem, LocalDateTime timeStamp) {
         super();
         this.status = status;
         this.mensagem = mensagem;
@@ -29,11 +31,11 @@ public class ErroClass {
         this.mensagem = mensagem;
     }
 
-    public Long getTimeStamp() {
+    public LocalDateTime getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(Long timeStamp) {
+    public void setTimeStamp(LocalDateTime timeStamp) {
         this.timeStamp = timeStamp;
     }
 }
