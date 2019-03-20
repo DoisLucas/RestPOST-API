@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class homeController {
 
     @GetMapping("/")
-    public String index(Model model) { return "index"; }
+    public String index(Model model) {
+        return "index";
+    }
 
 }

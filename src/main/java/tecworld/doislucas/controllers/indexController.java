@@ -38,17 +38,23 @@ public class indexController {
 
     @GetMapping(value = "/continentes/{id}")
     public ResponseEntity<Continente> ContinenteByID(@PathVariable("id") int id) {
-        return ResponseEntity.status(HttpStatus.OK).body(continenteService.findById(id));
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(continenteService.findById(id));
     }
 
     @GetMapping(value = "/continentes/{id}/paises")
     public ResponseEntity<List<Pais>> PaisByContinente(@PathVariable("id") int id) {
-        return ResponseEntity.status(HttpStatus.OK).body(continenteService.findById(id).getPaises());
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(continenteService.findById(id).getPaises());
     }
 
     @GetMapping(value = "/continentes/{id}/paises/{id2}")
     public ResponseEntity<Pais> PaisByID(@PathVariable("id") int id, @PathVariable("id2") int id2) {
-        return ResponseEntity.status(HttpStatus.OK).body(paisService.findOneIDs(id, id2));
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(paisService.findOneIDs(id, id2));
     }
 
 }
