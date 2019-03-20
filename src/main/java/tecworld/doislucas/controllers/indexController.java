@@ -11,7 +11,7 @@ import tecworld.doislucas.services.PaisService;
 
 import java.util.List;
 
-import static tecworld.doislucas.Utils.Utils.removerAcentos;
+import static tecworld.doislucas.utils.Functions.removerAcentos;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController

@@ -15,7 +15,12 @@ public class PaisService {
     @Autowired
     private PaisRepository paisRepository;
 
-    public List<Pais> findOneName(String nome){ return this.paisRepository.findOneName(nome); }
-    public Pais findOneIDs(int id, int id1) { return this.paisRepository.findOneIDs(id, id1); }
+    public List<Pais> findOneName(String nome){
+        return this.paisRepository.findOneName(nome);
+    }
+    
+    public Pais findOneIDs(int id, int id1) {
+        return this.paisRepository.findOneIDs(id, id1);
+    }
 
 }
