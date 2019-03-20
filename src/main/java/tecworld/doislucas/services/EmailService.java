@@ -6,7 +6,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import tecworld.doislucas.models.Email;
 import tecworld.doislucas.repositories.EmailRepository;
-import tecworld.doislucas.services.exceptions.GenericException;
+import tecworld.doislucas.services.exceptions.EmailDuplicatedException;
 
 @Service
 @Primary
@@ -20,7 +20,7 @@ public class EmailService {
         try {
             return emailRepository.save(email);
         } catch (DataIntegrityViolationException e) {
-            throw new GenericException("Email já existente na base de dados!");
+            throw new EmailDuplicatedException("Email já existente na base de dados!");
         }
 
     }
