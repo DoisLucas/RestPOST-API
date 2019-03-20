@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import tecworld.doislucas.models.Continente;
 import tecworld.doislucas.repositories.ContinenteRepository;
-import tecworld.doislucas.services.exceptions.ObjectNotFoundException;
+import tecworld.doislucas.services.exceptions.GenericException;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class ContinenteService {
     }
 
     public Continente findById(int id) {
-        return this.continenteRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Continente não econtrado! ID:" + id + ", Classe: " + Continente.class.getName()));
+        return this.continenteRepository.findById(id).orElseThrow(() -> new GenericException("Continente não econtrado! ID:" + id + ", Classe: " + Continente.class.getName()));
     }
 
     public List<Continente> findByName(String nome){

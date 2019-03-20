@@ -1,7 +1,6 @@
 package tecworld.doislucas.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,11 +19,7 @@ public class emailController {
 
     @PostMapping(value = "/email")
     public ResponseEntity<?> catchEmail(@RequestBody Email email) {
-        try {
             return ResponseEntity.status(HttpStatus.CREATED).body( emailService.addEmail(email) );
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Error: Duplicate key value violates unique constraint");
-        }
     }
 
 }
