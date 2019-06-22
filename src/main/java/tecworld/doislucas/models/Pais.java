@@ -20,11 +20,20 @@ public class Pais {
     private String moeda;
     private String vizinhos;
     private String f_maritimas;
+    private String bandeira_url;
 
     @ManyToOne
     private Continente c;
 
     public Pais() {
+    }
+
+    public String getBandeira_url() {
+        return bandeira_url;
+    }
+
+    public void setBandeira_url(String bandeira_url) {
+        this.bandeira_url = bandeira_url;
     }
 
     public int getId() {

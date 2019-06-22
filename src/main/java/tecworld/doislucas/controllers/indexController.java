@@ -24,6 +24,8 @@ public class indexController {
 
     @GetMapping(value = "/paises")
     public ResponseEntity<List<Pais>> PaisesParam(@RequestParam(value = "nome") String nome) {
+
+
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(paisService.findOneName(removerAcentos(nome)));
